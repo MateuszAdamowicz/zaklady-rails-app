@@ -1,0 +1,33 @@
+<%= form_for(@obstawieny) do |f| %>
+  <% if @obstawieny.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obstawieny.errors.count, "error") %> prohibited this obstawieny from being saved:</h2>
+
+      <ul>
+      <% @obstawieny.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :zaklad_id %><br />
+    <%= f.number_field :zaklad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :opcja %><br />
+    <%= f.number_field :opcja %>
+  </div>
+  <div class="field">
+    <%= f.label :reputacja %><br />
+    <%= f.number_field :reputacja %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

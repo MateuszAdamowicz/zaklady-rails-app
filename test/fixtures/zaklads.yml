@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  data: 2013-08-10 18:23:11
+  gospodarz: MyString
+  gosc: MyString
+  k1: 1.5
+  k2: 1.5
+  k3: 1.5
+
+two:
+  data: 2013-08-10 18:23:11
+  gospodarz: MyString
+  gosc: MyString
+  k1: 1.5
+  k2: 1.5
+  k3: 1.5

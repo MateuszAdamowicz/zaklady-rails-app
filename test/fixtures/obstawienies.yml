@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  zaklad_id: 1
+  user_id: 1
+  opcja: 1
+  reputacja: 1
+
+two:
+  zaklad_id: 1
+  user_id: 1
+  opcja: 1
+  reputacja: 1

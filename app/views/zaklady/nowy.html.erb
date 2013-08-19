@@ -1,0 +1,14 @@
+<%= form_tag(:controller => "zaklady", :action => "nowy", :method => "post") do |f| %>
+	<div class='field'>
+		<%=label_tag 'Wydarzenie' %><br />
+		<%=text_field_tag 'Wydarzenie','', size: 50 %>
+	</div>
+	<div class='field'>
+		<%=label_tag 'Zaklady' %><br />
+		<%=text_area_tag 'Zaklady', nil, rows: 10, cols: 50 %>
+	</div>
+	<div class='actions'>
+		<%= submit_tag 'Save' %>
+	</div>
+<% end %>
+	

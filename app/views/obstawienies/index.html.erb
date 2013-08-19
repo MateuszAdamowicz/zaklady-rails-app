@@ -1,0 +1,29 @@
+<h1>Listing obstawienies</h1>
+
+<table>
+  <tr>
+    <th>Zaklad</th>
+    <th>User</th>
+    <th>Opcja</th>
+    <th>Reputacja</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @obstawienies.each do |obstawieny| %>
+  <tr>
+    <td><%= obstawieny.zaklad_id %></td>
+    <td><%= obstawieny.user_id %></td>
+    <td><%= obstawieny.opcja %></td>
+    <td><%= obstawieny.reputacja %></td>
+    <td><%= link_to 'Show', obstawieny %></td>
+    <td><%= link_to 'Edit', edit_obstawieny_path(obstawieny) %></td>
+    <td><%= link_to 'Destroy', obstawieny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Obstawienie', new_obstawieny_path %>

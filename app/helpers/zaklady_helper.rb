@@ -1,0 +1,2 @@
+module ZakladyHelper
+end

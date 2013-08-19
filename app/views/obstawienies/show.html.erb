@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Zaklad:</b>
+  <%= @obstawieny.zaklad_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @obstawieny.user_id %>
+</p>
+
+<p>
+  <b>Opcja:</b>
+  <%= @obstawieny.opcja %>
+</p>
+
+<p>
+  <b>Reputacja:</b>
+  <%= @obstawieny.reputacja %>
+</p>
+
+
+<%= link_to 'Edit', edit_obstawieny_path(@obstawieny) %> |
+<%= link_to 'Back', obstawienies_path %>

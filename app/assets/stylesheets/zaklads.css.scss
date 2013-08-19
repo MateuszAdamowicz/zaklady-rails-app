@@ -1,0 +1,47 @@
+// Place all the styles related to the Zaklads controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table thead {
+	background: #000;
+	color: #fff;
+}
+table tbody {
+	background: transparent;
+	color: #000;
+	text-align: left;
+}
+table tfoot {
+	background: #525252;
+	color: #fff;
+	text-align: center;
+}
+table tfoot a:link, table tfoot a:visited {
+	color: #fff;
+	text-decoration: underline;
+}
+table tfoot a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+table tbody tr:nth-child(even) {
+	background: #EBEBEB;
+}
+table tbody tr:nth-child(odd) {
+	background: #D6D6D6;
+}
+
+table tbody tr.czerwony {
+	background: #FFCC99;
+}
+table tbody tr.czerwony:hover {
+	background: red;
+}
+
+table tbody tr.zielony {
+	background: #CCFF99;
+}
+table tbody tr.zielony:hover {
+	background: green;
+}

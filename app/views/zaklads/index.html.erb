@@ -1,0 +1,47 @@
+<h1>Listing zaklads</h1>
+<% Event.active.each do |event| %>
+    <% @i = 0 %>
+    <% if event.zaklads.any? {|zaklad| zaklad.data > DateTime.now} %>
+        <center><b><%= event.name %></b></center>
+        <table>
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Gospodarz</td>
+                    <td>Gosc</td>
+                    <td>1</td>
+                    <td>X</td>
+                    <td>2</td>
+                    <td>OBSTAW</td>
+                </tr>
+            </thead>
+            <% event.zaklads.sort_by{|e| e.data}.each do |zaklad| %>
+                <% if zaklad.data < DateTime.now %>
+                    <% kolor = "czerwony" %>
+                <% else %>
+                    <% kolor = "zielony" %>
+                    <% @i += 1 %>
+                <% end %>
+                <tbody>
+                    <tr class=<%=kolor%>>
+                        <td><%=zaklad.data%></td>
+                        <td><%=zaklad.gospodarz%></td>
+                        <td><%=zaklad.gosc%></td>
+                        <td><%=zaklad.k1%></td>
+                        <td><%=zaklad.k2%></td>
+                        <td><%=zaklad.k3%></td>
+                        </td>
+                    </tr>
+                </tbody>
+            <% end %>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Aktywnych zakładów: <%= @i %></td>
+                </tr>
+            </tfoot>
+        </table>
+    <% else %>
+        <% event.status = 1 %>
+        <% event.save %>
+    <% end %>
+<% end %>

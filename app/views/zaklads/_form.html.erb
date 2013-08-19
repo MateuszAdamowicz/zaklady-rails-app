@@ -1,0 +1,41 @@
+<%= form_for(@zaklad) do |f| %>
+  <% if @zaklad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@zaklad.errors.count, "error") %> prohibited this zaklad from being saved:</h2>
+
+      <ul>
+      <% @zaklad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.datetime_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :gospodarz %><br />
+    <%= f.text_field :gospodarz %>
+  </div>
+  <div class="field">
+    <%= f.label :gosc %><br />
+    <%= f.text_field :gosc %>
+  </div>
+  <div class="field">
+    <%= f.label :k1 %><br />
+    <%= f.text_field :k1 %>
+  </div>
+  <div class="field">
+    <%= f.label :k2 %><br />
+    <%= f.text_field :k2 %>
+  </div>
+  <div class="field">
+    <%= f.label :k3 %><br />
+    <%= f.text_field :k3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

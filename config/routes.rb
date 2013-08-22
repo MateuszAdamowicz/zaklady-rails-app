@@ -8,6 +8,9 @@ Zaklady::Application.routes.draw do
   get "zaklady/nowy"
   post "zaklady/nowy"
 
+  get "zaklady/wynik"
+  post "zaklady/wynik"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

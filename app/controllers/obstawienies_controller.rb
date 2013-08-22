@@ -40,15 +40,27 @@ class ObstawieniesController < ApplicationController
   # POST /obstawienies
   # POST /obstawienies.json
   def create
-    @obstawieny = Obstawienie.new(params[:obstawieny])
 
+
+    
+    @user = User.where(name: params[:Nick]).first
+    if @user
+      @obstawieny = Obstawienie.new({:zaklad_id => params[:Zaklad], :user_id => @user.id, :opcja => params[:Reputacja], :reputacja => params[:Ilosc], :wygrana => 0})
+    else
+      @obstawieny = Obstawienie.new({:zaklad_id => params[:Zaklad], :user_id => 1, :opcja => params[:Reputacja], :reputacja => params[:Ilosc], :wygrana => 0})
+    end
     respond_to do |format|
-      if @obstawieny.save
-        format.html { redirect_to @obstawieny, notice: 'Obstawienie was successfully created.' }
-        format.json { render json: @obstawieny, status: :created, location: @obstawieny }
-      else
-        format.html { render action: "new" }
+      if not @user or @user.password != params[:Kod]
+        format.html { redirect_to "/zaklads", notice: ["Błędny login lub kod"] }
         format.json { render json: @obstawieny.errors, status: :unprocessable_entity }
+      else
+        if @obstawieny.save
+          format.html { redirect_to "/zaklads", notice: 'Zakład został postawiony!' }
+          format.json { render json: @obstawieny, status: :created, location: @obstawieny }
+        else
+          format.html { redirect_to "/zaklads", notice: @obstawieny.errors.full_messages }
+          format.json { render json: @obstawieny.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

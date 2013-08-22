@@ -1,0 +1,23 @@
+<% Event.waiting.each do |event| %>
+	<%= event.name %> </br>
+	<table>
+		<thead>
+			<td>Zakłady</td>
+			<td>Wyniki</td>
+		</thead>
+		<tbody>
+			<td>
+				<% @i = 1 %>
+				<% event.zaklads.sort_by{|x| x.data}.each do |zaklad| %>
+					<%= @i %>.) <%= zaklad.gospodarz %> - <%= zaklad.gosc %> </br>
+					<% @i += 1 %>
+				<% end %>
+			</td>
+			<td>
+				<%= form_tag(:controller => "zaklady", :action => "wynik", :method => "post") do %>
+					<%= text_area_tag "Wynik", nil, :rows => event.zaklads.length %> <%= hidden_field_tag "Event", event.id %> <%= submit_tag 'OK' %>
+				<% end %>
+			</td>
+		</tbody>
+	</table>
+<% end %>

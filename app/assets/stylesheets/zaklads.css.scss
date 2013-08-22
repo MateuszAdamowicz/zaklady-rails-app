@@ -2,6 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	background: #F8F8F8 ;
+}
+
+#accept {
+	background: #CCFF99;
+	border: 3px solid green;
+	padding: 5px;
+}
+
+#accept h1{
+	font-size: 15px;
+	color: green;
+	text-align: center;
+}
+
+#fail {
+	background: #FFCC99;
+	border: 3px solid red;
+	padding: 5px;
+}
+
+#fail h1{
+	font-size: 15px;
+	color: red;
+	text-align: center;
+}
+
+h2 {
+	font-size: 24px;
+	color: #3333FF;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 2px;
+	border-left: 10px solid #CCCCCC;
+}
+h2:hover{
+	border-left: 10px solid black;
+	margin-left: 20px;
+}
+
 table thead {
 	background: #000;
 	color: #fff;
@@ -25,12 +66,6 @@ table tfoot a:hover {
 	text-decoration: none;
 }
 
-table tbody tr:nth-child(even) {
-	background: #EBEBEB;
-}
-table tbody tr:nth-child(odd) {
-	background: #D6D6D6;
-}
 
 table tbody tr.czerwony {
 	background: #FFCC99;
@@ -44,4 +79,35 @@ table tbody tr.zielony {
 }
 table tbody tr.zielony:hover {
 	background: green;
+}
+
+table tbody td.off {
+	background: #FFCC99;
+	font-size: 8px;
+}
+table tbody td {
+	font-size: 10px;
+}
+
+table tbody td.off:hover{
+	background: red;
+}
+
+table tbody td.wygrany{
+	background: #CCFF99;
+}
+table tbody td.wygrany:hover{
+	background: green;
+}
+table tbody td.przegrany{
+	background: #FFCC99;
+}
+table tbody td.przegrany:hover{
+	background: red;
+}
+table tbody td.remis{
+	background: #FFFF99;
+}
+table tbody td.remis:hover{
+	background: yellow;
 }

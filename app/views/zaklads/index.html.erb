@@ -17,7 +17,28 @@
     <h1>
         Ostatnie zakłady
     </h1>
-    hamlahamlahamla
+    <table>
+        <thead>
+            <td>Nick</td>
+            <td>Zakład</td>
+            <td>Repka</td>
+        </thead>
+        <tbody>
+            <% @zaklady = Obstawienie.all.sort_by{|x| x.created_at}[-6..-1] %>
+            <% @zaklady.each do |ostatni| %>
+            <tr>
+                <td><%= User.find(ostatni.user_id).name %></td>
+                <% if ostatni.opcja == 1 %>
+                    <td><%= Zaklad.find(ostatni.zaklad_id).gospodarz %></td>
+                <% elsif ostatni.opcja == 2 %>
+                    <td>Remis</td>
+                <% else %>
+                    <td><%= Zaklad.find(ostatni.zaklad_id).gosc %></td>
+                <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>
 <table border=1>
     <thead>

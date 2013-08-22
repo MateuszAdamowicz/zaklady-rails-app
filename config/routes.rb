@@ -1,4 +1,7 @@
 Zaklady::Application.routes.draw do
+  
+  root :to => 'zaklads#index'
+
   resources :obstawienies
 
 

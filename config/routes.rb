@@ -4,6 +4,7 @@ Zaklady::Application.routes.draw do
 
   resources :zaklads
 
+  root_to: "zaklads/index"
 
   get "zaklady/nowy"
   post "zaklady/nowy"

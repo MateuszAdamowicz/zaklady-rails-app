@@ -72,7 +72,7 @@
                         <% end %>
                         <tfoot>
                             <tr>
-                                <td colspan=3>Do kolejnego zakładu pozostało: <%=distance_of_time_in_words_to_now(event.zaklads.select { |x| x.data > DateTime.now + 2.hours }.sort_by{|x| x.data}.first.data)%> </td>
+                                <td colspan=3>Do kolejnego zakładu pozostało: <%=distance_of_time_in_words(event.zaklads.select { |x| x.data > DateTime.now + 2.hours }.sort_by{|x| x.data}.first.data, DateTime.now + 2.hours)%> </td>
                             </tr>
                         </tfoot>
                     </table>

@@ -1,4 +1,3 @@
-<% Time.zone = "UTC" %>
 <% if notice.class == "".class %>
     <div id="accept">
         <h1>ZAKŁAD ZOSTAŁ PRZYJĘTY!</h1>
@@ -22,7 +21,7 @@
         <td>
             <% Event.active.each do |event| %>
                 <% @i = 0 %>
-                <% if event.zaklads.any? {|zaklad| zaklad.data > Time.zone.now} %>
+                <% if event.zaklads.any? {|zaklad| zaklad.data > DateTime.now + 2.hours} %>
                     <h2><%= event.name %></h2>
                     <table>
                         <thead>
@@ -40,7 +39,7 @@
                             </tr>
                         </thead>
                         <% event.zaklads.sort_by{|e| e.data}.each do |zaklad| %>
-                            <% if zaklad.data < Time.zone.now %>
+                            <% if zaklad.data < DateTime.now + 2.hours %>
                                 <% kolor = "czerwony" %>
                             <% else %>
                                 <% kolor = "zielony" %>
@@ -73,7 +72,7 @@
                         <% end %>
                         <tfoot>
                             <tr>
-                                <td colspan=3>Do kolejnego zakładu pozostało: <%=distance_of_time_in_words_to_now(event.zaklads.select { |x| x.data > Time.zone.now }.sort_by{|x| x.data}.first.data)%> </td>
+                                <td colspan=3>Do kolejnego zakładu pozostało: <%=distance_of_time_in_words_to_now(event.zaklads.select { |x| x.data > DateTime.now + 2.hours }.sort_by{|x| x.data}.first.data)%> </td>
                             </tr>
                         </tfoot>
                     </table>

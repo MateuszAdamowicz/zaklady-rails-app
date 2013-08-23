@@ -50,16 +50,21 @@ class ObstawieniesController < ApplicationController
       @obstawieny = Obstawienie.new({:zaklad_id => params[:Zaklad], :user_id => 1, :opcja => params[:Reputacja], :reputacja => params[:Ilosc], :wygrana => 0})
     end
     respond_to do |format|
-      if not @user or @user.password != params[:Kod]
-        format.html { redirect_to "/zaklads", notice: ["Błędny login lub kod"] }
+      if Zaklad.find(params[:Zaklad]).data  < DateTime.now + 2.hours
+        format.html { redirect_to "/zaklads", notice: ["Zakład nie został postawiony. Nie oszukuj :)"] }
         format.json { render json: @obstawieny.errors, status: :unprocessable_entity }
-      else
-        if @obstawieny.save
-          format.html { redirect_to "/zaklads", notice: 'Zakład został postawiony!' }
-          format.json { render json: @obstawieny, status: :created, location: @obstawieny }
-        else
-          format.html { redirect_to "/zaklads", notice: @obstawieny.errors.full_messages }
+      else        
+        if not @user or @user.password != params[:Kod]
+          format.html { redirect_to "/zaklads", notice: ["Błędny login lub kod"] }
           format.json { render json: @obstawieny.errors, status: :unprocessable_entity }
+        else
+          if @obstawieny.save
+            format.html { redirect_to "/zaklads", notice: 'Zakład został postawiony!' }
+            format.json { render json: @obstawieny, status: :created, location: @obstawieny }
+          else
+            format.html { redirect_to "/zaklads", notice: @obstawieny.errors.full_messages }
+            format.json { render json: @obstawieny.errors, status: :unprocessable_entity }
+          end
         end
       end
     end

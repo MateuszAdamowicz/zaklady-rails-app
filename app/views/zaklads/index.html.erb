@@ -118,7 +118,11 @@
                             <% zaklad.obstawienies.each do |obstawienie| %>
                             <tr>
                                 <td><%= User.find(obstawienie.user_id).name %></td>
-                                <td>później</td>
+                                <% case %>
+                                <td><%= when obstawienie.opcja == 0 then zaklad.gospodarz %></td>
+                                <td><%= when obstawienie.opcja == 1 then "Remis" %></td>
+                                <td><%= when obstawienie.opcja == 2 then zaklad.gosc %></td>
+                                <% end %>
                                 <td><%= obstawienie.wygrana %></td>
                             </tr>
                             <% end %>

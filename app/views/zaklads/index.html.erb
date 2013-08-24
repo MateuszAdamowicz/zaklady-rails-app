@@ -18,7 +18,7 @@
         <td width="40%">Wyniki</td>
     </thead>
     <tbody>
-        <td>
+        <td valign="top">
             <% Event.active.each do |event| %>
                 <% @i = 0 %>
                 <% if event.zaklads.any? {|zaklad| zaklad.data > DateTime.now + 2.hours} %>

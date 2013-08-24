@@ -51,7 +51,7 @@ class ObstawieniesController < ApplicationController
     end
     respond_to do |format|
       if Zaklad.find(params[:Zaklad]).data  < DateTime.now + 2.hours
-        format.html { redirect_to "/zaklads", notice: ["Zakład nie został postawiony. Nie oszukuj :)"] }
+        format.html { redirect_to "/zaklads", notice: ["Obstawiono po terminie!","Nie oszukuj :)"] }
         format.json { render json: @obstawieny.errors, status: :unprocessable_entity }
       else        
         if not @user or @user.password != params[:Kod]

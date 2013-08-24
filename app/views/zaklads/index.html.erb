@@ -122,9 +122,9 @@
                                 <tr class="czerwony">
                             <% end %>
                                 <td><%= User.find(obstawienie.user_id).name %></td>
-                                <% if obstawienie.opcja == 0 %>
+                                <% if obstawienie.opcja == 1 %>
                                     <td><%= zaklad.gospodarz %></td>
-                                <% elsif obstawienie.opcja == 1 %>
+                                <% elsif obstawienie.opcja == 2 %>
                                     <td>Remis</td>
                                 <% else %>
                                     <td><%= zaklad.gosc %></td>

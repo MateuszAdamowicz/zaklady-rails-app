@@ -118,10 +118,12 @@
                             <% zaklad.obstawienies.each do |obstawienie| %>
                             <tr>
                                 <td><%= User.find(obstawienie.user_id).name %></td>
-                                <% case %>
-                                <td><%= when obstawienie.opcja == 0 then zaklad.gospodarz %></td>
-                                <td><%= when obstawienie.opcja == 1 then "Remis" %></td>
-                                <td><%= when obstawienie.opcja == 2 then zaklad.gosc %></td>
+                                <% if obstawienie.opcja == 0 %>
+                                    <td><%= zaklad.gospodarz %></td>
+                                <% elsif obstawienie.opcja == 1 %>
+                                    <td>Remis</td>
+                                <% else %>
+                                    <td><%= zaklad.gosc %></td>
                                 <% end %>
                                 <td><%= obstawienie.wygrana %></td>
                             </tr>

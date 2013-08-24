@@ -116,7 +116,11 @@
                     <tbody>
                         <% event.zaklads.each do |zaklad| %>
                             <% zaklad.obstawienies.each do |obstawienie| %>
-                            <tr>
+                            <% if obstawienie.wygrana >= 0 %>
+                                <tr class="zielony">
+                            <% else %>
+                                <tr class="czerwony">
+                            <% end %>
                                 <td><%= User.find(obstawienie.user_id).name %></td>
                                 <% if obstawienie.opcja == 0 %>
                                     <td><%= zaklad.gospodarz %></td>
